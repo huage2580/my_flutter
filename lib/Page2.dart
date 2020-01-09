@@ -17,7 +17,7 @@ class Page2State extends State<Page2>{
   @override
   Widget build(BuildContext context) {
     _getBatteryLevel();
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(title: Text("页面2"),),
       body: Container(
         child: Center(

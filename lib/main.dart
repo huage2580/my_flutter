@@ -9,10 +9,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: "/home",
+      initialRoute: "home",
       routes: {
-        "/page2":(context)=>Page2(),
-        "/home":(context)=>MyHomePage(title: "hello!",)
+        "page2":(context)=>Page2(),
+        "home":(context)=>MyHomePage(title: "hello!",)
+      },
+      onGenerateRoute: (settings){
+        print(settings.name);
+        return MaterialPageRoute(builder: (context){
+          return MyHomePage(title: settings.name,);
+        });
       },
       theme: ThemeData(
         // This is the theme of your application.
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
         // or press Run > Flutter Hot Reload in a Flutter IDE). Notice that the
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
-      )
+      ),
     );
   }
 }
@@ -98,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text("click me !"),
               onPressed: (){
-                Navigator.pushNamed(context, "/page2");
+                Navigator.pushNamed(context, "page2");
               },
             ),
             Text(
